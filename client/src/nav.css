@@ -1,0 +1,12 @@
+nav{padding: 10px;
+   background-color: #000000; 
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+li{
+    text-decoration: none;
+}
