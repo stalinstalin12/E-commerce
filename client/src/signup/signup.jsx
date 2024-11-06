@@ -7,6 +7,7 @@ export default function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const[isSeller,setIsSeller]=useState('false');
   const [errors, setErrors] = useState({ name: '', email: '', password: '' });
 
   const addUser = async (event) => {
@@ -53,7 +54,7 @@ export default function Signup() {
       return;
     }
 
-    const data = { name, email, password };
+    const data = { name, email, password,isSeller };
     console.log("data:", data);
 
     try {
@@ -64,15 +65,24 @@ export default function Signup() {
         },
         body: JSON.stringify(data)
       });
+      const responseData = await response.json();
       console.log("response:", response);
 
       if (response.ok) {
-        alert("user added ")
+        if(responseData.isSeller){
+          alert("user created successfully as seller");
+        }
+        else{
+          alert("user created successfully")
+        }
       } else {
         const parsedResponse = await response.text();
         console.log("parsed response:", parsedResponse);
         alert(parsedResponse || "something went wrong");
       }
+     
+
+      
     } catch (error) {
       console.error("Error:", error);
       alert("something went wrong");
@@ -105,10 +115,10 @@ export default function Signup() {
           {errors.password && <div id="pass-err" style={{ color: 'red' }}>{errors.password}</div>}
           </div>
           <div className="form-group checkbox-group">
-            <input type="checkbox" id="terms" required />
-            <label htmlFor="terms" style={{color: 'wheat'}}>Seller?</label>
+            <input type="checkbox" id="isSeller" checked={isSeller} onChange={()=>{setIsSeller(!isSeller)}} />
+            <label htmlFor="isSeller"style={{color: 'wheat'}}>Seller?</label>
           </div>
-          <button type="submit" className="register-button">Register</button>
+          <button type="submit" className="register-button">Register</button><br />
           
             <Link to="/Login" className="LoginText"> Already user?</Link>
         </form>

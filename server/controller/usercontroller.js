@@ -15,8 +15,13 @@ exports.createUser=async function(req,res) {
         let email=req.body.email;
         let image=req.body.image;
        
-        body.user_type = '67093864c0ea8c996aa031a2'
+        if(req.body.isSeller===true){
+            body.user_type = '672afb51f82dda9f3059e32f'
+        }
 
+        else{
+        body.user_type = '67093864c0ea8c996aa031a2'
+        }
          
 
         if(image){

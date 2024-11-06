@@ -8,9 +8,14 @@ module.exports = {
         {
          _id:"67093843c0ea8c996aa031a1",
          user_type:"admin"
-        },{
+        },
+        {
           _id:"67093864c0ea8c996aa031a2",
-         user_type:"employee"
+         user_type:"Buyer"
+        },
+        {
+          _id:"672afb51f82dda9f3059e32f",
+          user_type:"Seller"
         }
       ]).then(res => {
      
@@ -26,7 +31,8 @@ module.exports = {
          _id:{
           $in:[
             '67093843c0ea8c996aa031a1',
-            '67093864c0ea8c996aa031a2'
+            '67093864c0ea8c996aa031a2',
+            '672afb51f82dda9f3059e32f'
           ]
          }
         }
