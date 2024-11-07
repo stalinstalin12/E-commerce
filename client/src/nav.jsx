@@ -5,8 +5,9 @@ export default function Nav(){
         <>
         <Router>
          <nav>
+            <h1>FitForce</h1>
                 <ul>
-                    <li><Link to={'/Signup'} style={{color:"white",textDecoration:"none"}}>Home</Link></li>
+                    <li><Link to={'/'} style={{color:"white",textDecoration:"none"}}>Home</Link></li>
                     <li><Link to={'/Signup'} style={{color:"white",textDecoration:"none"}}>About</Link></li>
                     <li><Link to={'/Signup'} style={{color:"white",textDecoration:"none"}}>Sign-up</Link></li>
 

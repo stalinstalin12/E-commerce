@@ -4,6 +4,7 @@ import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 
 import Signup from "./signup/signup"
 import Login from "./signup/signin";
+import Home from "./viewpage";
 function App() {
 
   return (
@@ -11,6 +12,8 @@ function App() {
     <Nav/>
     <Router>
       <Routes>
+      <Route path="/" element={<Home/>} />
+
         <Route path="/Signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
